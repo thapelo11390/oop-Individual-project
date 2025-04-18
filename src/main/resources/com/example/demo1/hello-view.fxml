@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Vehicle Rental System" style="-fx-font-size: 20px;"/>
+
+    <!-- Vehicle Form -->
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="vehicleIdField" promptText="Vehicle ID"/>
+        <TextField fx:id="brandModelField" promptText="Brand & Model"/>
+        <TextField fx:id="categoryField" promptText="Category"/>
+        <TextField fx:id="priceField" promptText="Price/Day"/>
+        <ComboBox fx:id="statusBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Available"/>
+                    <String fx:value="Rented"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Button text="Add Vehicle" onAction="#addVehicle"/>
+    </HBox>
+
+    <!-- Vehicle Table -->
+    <TableView fx:id="vehicleTable" prefHeight="300" prefWidth="600">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Brand & Model" fx:id="brandColumn"/>
+            <TableColumn text="Category" fx:id="categoryColumn"/>
+            <TableColumn text="Price/Day" fx:id="priceColumn"/>
+            <TableColumn text="Status" fx:id="statusColumn"/>
+        </columns>
+    </TableView>
+
+    <!-- Placeholder for Reports and Visualization -->
+    <Label text="Vehicle Availability and Revenue Reports">
+        <padding>
+            <Insets top="10"/>
+        </padding>
+    </Label>
+    <!-- Add a simple pie chart or other visualizations here as per your requirements -->
+</VBox>
